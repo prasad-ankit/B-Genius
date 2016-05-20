@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android" 
+    android:id="@+id/frame" 
+    android:background="@drawable/app_bg" 
+    android:layout_width="fill_parent" 
+    android:layout_height="fill_parent" >
+    
+    <RelativeLayout 
+        android:layout_gravity="center_horizontal" 
+        android:layout_width="fill_parent" 
+        android:layout_height="fill_parent" 
+        android:layout_marginTop="2.0dip" 
+        >
+        
+        <RelativeLayout 
+            android:id="@+id/header"
+            android:orientation="horizontal" 
+            android:layout_width="fill_parent"
+            android:layout_centerHorizontal="true" 
+            android:layout_gravity="center_horizontal" 
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/maintext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:text="@string/app_name"
+                android:textColor="@android:color/black"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textSize="25.0sp"
+                android:textStyle="bold" />
+            
+        </RelativeLayout>
+        <GridView 
+            android:id="@+id/gridview" 
+            android:padding="4.0dip" 
+            android:scrollbars="none" 
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:listSelector="#00000000"
+            android:horizontalSpacing="@dimen/photo_spacing" 
+            android:verticalSpacing="@dimen/photo_spacing" 
+            android:stretchMode="columnWidth" 
+            android:layoutAnimation="@anim/layout_random_fade"
+            android:columnWidth="@dimen/photo_size" 
+            android:numColumns="auto_fit" 
+            android:layout_below="@id/header" />
+    </RelativeLayout>
+    
+
+</RelativeLayout>

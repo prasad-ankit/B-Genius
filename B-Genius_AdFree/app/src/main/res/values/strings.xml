@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">B-Genius</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_volume_up">Volume +</string>
+    <string name="action_volume_down">Volume -</string>
+<string name="image_content">Content</string>
+    <!-- AdMob Ads -->
+
+    <string name="about">About Us</string>   
+    
+    <!-- App Splash Info -->  
+   <string name="welcome_screen">WELCOME</string>   
+   <string name="organized">Organized By:</string>
+   <string name="organizer_name">Golakar Technology</string>  
+      
+   <!-- Main Board -->
+    <string name="capital_letter">A</string>
+    <string name="small_letter">a</string>
+    <string name="letter_icon_name">Apple</string>
+    <!-- Guess Image -->  
+   <string name="your_score">Your Score</string> 
+    
+    <!-- Flag Quiz Board -->
+    <string name="hints1">Hints 1</string>
+    <string name="hints2">Hints 2</string>
+    <string name="hints3">Hints 3</string>
+    <string name="hints4">Hints 4</string> 
+    <string name="submit_answer">Submit</string>
+    <string name="correct_text">Correct:</string>
+    <string name="question_done">Question Done:</string>
+    <string name="correctVal">0</string>
+    <string name="askedVal">0</string>
+    <string name="back_game">Try Again</string>    
+    
+    <!-- YOUR Startapp Information -->
+    <string name="startapp_dev_id">YOUR_DEV_ID</string>
+    <string name="startapp_app_id">YOUR_APP_ID</string>
+
+
+
+</resources>

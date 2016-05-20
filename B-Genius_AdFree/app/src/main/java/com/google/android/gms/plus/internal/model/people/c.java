@@ -1,0 +1,30 @@
+package com.google.android.gms.plus.internal.model.people;
+
+import android.os.Parcel;
+import android.os.Parcelable.Creator;
+import android.support.v4.app.j;
+import java.util.Set;
+
+public final class c
+  implements Parcelable.Creator
+{
+  static void a(PersonEntity.CoverEntity paramCoverEntity, Parcel paramParcel, int paramInt)
+  {
+    int i = j.b(paramParcel);
+    Set localSet = paramCoverEntity.a;
+    if (localSet.contains(Integer.valueOf(1)))
+      j.a(paramParcel, 1, paramCoverEntity.b);
+    if (localSet.contains(Integer.valueOf(2)))
+      j.a(paramParcel, 2, paramCoverEntity.c, paramInt, true);
+    if (localSet.contains(Integer.valueOf(3)))
+      j.a(paramParcel, 3, paramCoverEntity.d, paramInt, true);
+    if (localSet.contains(Integer.valueOf(4)))
+      j.a(paramParcel, 4, paramCoverEntity.e);
+    j.x(paramParcel, i);
+  }
+}
+
+/* Location:           C:\Users\KSHITIZ GUPTA\Downloads\apktool-install-windws\dex2jar-0.0.9.15\dex2jar-0.0.9.15\classes_dex2jar.jar
+ * Qualified Name:     com.google.android.gms.plus.internal.model.people.c
+ * JD-Core Version:    0.6.0
+ */

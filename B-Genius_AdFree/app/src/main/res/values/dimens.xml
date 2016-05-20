@@ -1,0 +1,14 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+<dimen name="text_size">16.0dip</dimen>
+    <dimen name="photo_size">100.0dip</dimen>
+    <dimen name="photo_spacing">4.0dip</dimen>
+    <item name="menuFromDegrees" format="float" type="dimen">180.0</item>
+    <item name="menuToDegrees" format="float" type="dimen">360.0</item>
+    <dimen name="menuChildSize">75dp</dimen>
+
+
+</resources>

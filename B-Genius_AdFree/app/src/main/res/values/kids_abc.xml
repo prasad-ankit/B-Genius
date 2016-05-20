@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>    
+    <string name="a">Apple</string>
+    <string name="b">Book</string>
+    <string name="c">Cat</string>
+    <string name="d">Dog</string>
+    <string name="e">Egg</string>
+    <string name="f">Frog</string>
+    <string name="g">Grape</string>
+    <string name="h">Horse</string>
+    <string name="i">Ice cream</string>
+    <string name="j">Jug</string>
+    <string name="k">King crown</string>
+    <string name="l">Lion</string>
+    <string name="m">Mango</string>
+    <string name="n">Nest</string>
+    <string name="o">Orange</string>
+    <string name="p">Parrot</string>
+    <string name="q">Queen</string>
+    <string name="r">Rose</string>
+    <string name="s">Strawberry</string>
+    <string name="t">Train</string>
+    <string name="u">Umbrella</string>
+    <string name="v">Van</string>
+    <string name="w">Watermelon</string>
+    <string name="x">X ray</string>
+    <string name="y">Yam</string>
+    <string name="z">Zebra</string>     
+    
+</resources>

@@ -1,0 +1,75 @@
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+  	android:background="@drawable/bg_guess" > 
+  	
+
+	
+	<TableLayout 	
+			android:layout_width="fill_parent" 
+			android:layout_height="fill_parent" 
+			android:gravity="center"
+			android:layout_weight="1"
+			android:stretchColumns="*">
+
+    <ImageView
+        android:id="@+id/question_icon"
+        android:layout_width="fill_parent"
+        android:layout_height="200dp"
+        android:contentDescription="@null"
+        android:gravity="center"
+        android:layout_margin="20dp"
+        android:src="@drawable/question" /> 
+           
+	<TableRow>	
+	    <ImageView 
+	        android:id="@+id/alphabet_icon"    
+	   		android:layout_width="wrap_content"
+	   		android:layout_height="match_parent"		
+			android:contentDescription="@null"    
+			android:gravity="center"
+			android:layout_margin="20dp"	      
+			android:src="@drawable/alphabet_a" />			
+	</TableRow>
+	
+</TableLayout>
+
+
+<TableLayout 
+    android:id="@+id/bottomBar" 
+    android:layout_width="fill_parent"         
+    android:layout_height="wrap_content"
+    android:gravity="bottom"  
+    android:stretchColumns="1" 
+    android:background="@drawable/header_footer"
+    android:layout_weight="0">
+    <TableRow>
+        <Button 
+            android:id="@+id/prevButton" 
+            android:layout_width="wrap_content"             
+            android:layout_height="wrap_content"             
+            android:background="@drawable/previous_button"
+            android:layout_margin="10dp">            
+        </Button>
+        <TextView 
+            android:id="@+id/footerCaption" 
+            android:layout_width="fill_parent"            
+            android:visibility="invisible" 
+            style="@style/CaptionFont"             
+            android:layout_gravity="center"             
+            android:text="@string/letter_icon_name" >                      
+        </TextView>
+        <Button 
+            android:id="@+id/nextButton" 
+            android:layout_width="wrap_content"             
+            android:layout_height="wrap_content"             
+            android:background="@drawable/next_button"
+            android:layout_margin="10dp">            
+        </Button>
+    		</TableRow>
+		</TableLayout>	
+</LinearLayout>
+    

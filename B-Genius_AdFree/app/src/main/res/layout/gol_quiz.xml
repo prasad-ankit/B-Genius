@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/app_bg"
+    android:orientation="vertical"
+    tools:context=".utilities.GolQuizActivity" >
+
+
+    
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_margin="5dp"       
+        android:layout_weight="1"
+        android:gravity="center"
+        android:stretchColumns="*" >
+        <ImageView
+            android:id="@+id/letter_icon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:contentDescription="@null"
+            android:gravity="center"
+            android:layout_margin="10dp"
+            android:src="@drawable/letter_a" />
+        <TableRow>
+            <TableLayout
+                android:id="@+id/quizView"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"                
+                android:layout_gravity="bottom"
+                android:layout_margin="15dp"              
+                android:stretchColumns="*" >
+
+                <TableRow>
+                    
+                    <TextView
+                        android:id="@+id/quiz_option1"
+                        style="@style/answers"
+                        android:layout_width="fill_parent"                        
+                        android:gravity="center"
+                        android:layout_margin="5dp"                        
+                        android:text="@string/hints1"
+                        android:visibility="visible" >
+                    </TextView>
+                </TableRow>
+
+                <TableRow>                    
+
+                    <TextView
+                        android:id="@+id/quiz_option2"
+                        style="@style/answers"
+                        android:layout_width="fill_parent"
+                        android:gravity="center"
+                        android:layout_margin="5dp"
+                        android:text="@string/hints2"
+                        android:visibility="visible" >
+                    </TextView>
+                </TableRow>
+
+                <TableRow>                    
+
+                    <TextView
+                        android:id="@+id/quiz_option3"
+                        style="@style/answers"
+                        android:layout_width="fill_parent"
+                        android:gravity="center"
+                        android:layout_margin="5dp"
+                        android:text="@string/hints3"
+                        android:visibility="visible" >
+                    </TextView>
+                </TableRow>
+            </TableLayout>
+        </TableRow>
+    </TableLayout>     
+
+</LinearLayout>

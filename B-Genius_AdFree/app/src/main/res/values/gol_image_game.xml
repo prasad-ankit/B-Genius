@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="golimages">
+        <item>@drawable/quiz_apple</item>
+        <item>@drawable/quiz_banana</item>
+        <item>@drawable/quiz_camel</item>
+        <item>@drawable/quiz_carrot</item>
+        <item>@drawable/quiz_grape</item>
+        <item>@drawable/quiz_guava</item>
+        <item>@drawable/quiz_jug</item>
+        <item>@drawable/quiz_lemon</item>
+        <item>@drawable/quiz_lion</item>
+        <item>@drawable/quiz_parrot</item>
+        <item>@drawable/quiz_pineapple</item>
+        <item>@drawable/quiz_shoe</item>
+        <item>@drawable/quiz_tiger</item>
+        <item>@drawable/quiz_television</item>
+        <item>@drawable/quiz_wheel</item>
+        <item>@drawable/quiz_zeep</item>
+        
+    </array>
+    <string-array name="golname">
+        <item>Apple</item>
+        <item>Banana</item>
+        <item>Camel</item>
+        <item>Carrot</item>
+        <item>Grape</item>
+        <item>Guava</item>
+        <item>Jug</item>
+        <item>Lemon</item>
+        <item>Lion</item>
+        <item>Parrot</item>
+        <item>Pineapple</item>
+        <item>Shoe</item>
+        <item>Tiger</item>
+        <item>Television</item>
+        <item>Wheel</item>
+        <item>Zeep</item>        
+    </string-array>
+    
+</resources>

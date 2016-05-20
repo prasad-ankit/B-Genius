@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@drawable/simplebluebackground"
+    tools:context="ksz.test.b_genius.MainActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <include layout="@layout/content_main" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Pre School App"
+        android:id="@+id/bubble_btn"
+        android:background="#FF0000"
+        android:textSize="16pt"
+        android:onClick="goto_preschoolapp"
+        android:typeface="serif"
+        android:textAllCaps="false"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="150dp" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Catch Orange"
+        android:id="@+id/cal_button"
+        android:background="#0000FF"
+        android:textSize="16pt"
+        android:onClick="goto_catchorange"
+        android:typeface="serif"
+        android:textAllCaps="false"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="200dp" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Happy Girl 2"
+        android:id="@+id/calender_button"
+        android:background="#FFFF00"
+        android:textSize="16pt"
+        android:onClick="goto_happygirl2"
+        android:typeface="serif"
+        android:textAllCaps="false"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="250dp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Nursery Rhymes"
+        android:id="@+id/calender2_button"
+        android:background="#00FF00"
+        android:textSize="16pt"
+        android:onClick="goto_nursery"
+        android:typeface="serif"
+        android:textAllCaps="false"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="300dp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Brain Training"
+        android:id="@+id/button5"
+        android:background="#FF0FF0"
+        android:textSize="16pt"
+        android:onClick="goto_braintraining"
+        android:typeface="serif"
+        android:textAllCaps="false"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="350dp" />
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@android:drawable/ic_dialog_email"
+        android:onClick="goto_preschoolapp"/>
+
+</android.support.design.widget.CoordinatorLayout>

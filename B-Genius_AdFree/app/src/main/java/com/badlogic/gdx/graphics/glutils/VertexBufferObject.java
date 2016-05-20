@@ -1,0 +1,213 @@
+package com.badlogic.gdx.graphics.glutils;
+
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.VertexAttribute;
+import com.badlogic.gdx.graphics.VertexAttributes;
+import com.badlogic.gdx.utils.BufferUtils;
+import com.badlogic.gdx.utils.GdxRuntimeException;
+import java.nio.Buffer;
+import java.nio.ByteBuffer;
+import java.nio.FloatBuffer;
+
+public class VertexBufferObject
+  implements VertexData
+{
+  private VertexAttributes attributes;
+  private FloatBuffer buffer;
+  private int bufferHandle = Gdx.gl20.glGenBuffer();
+  private ByteBuffer byteBuffer;
+  boolean isBound = false;
+  boolean isDirty = false;
+  private boolean ownsBuffer;
+  private int usage;
+
+  protected VertexBufferObject(int paramInt, ByteBuffer paramByteBuffer, boolean paramBoolean, VertexAttributes paramVertexAttributes)
+  {
+    setBuffer(paramByteBuffer, paramBoolean, paramVertexAttributes);
+    setUsage(paramInt);
+  }
+
+  public VertexBufferObject(boolean paramBoolean, int paramInt, VertexAttributes paramVertexAttributes)
+  {
+    ByteBuffer localByteBuffer = BufferUtils.newUnsafeByteBuffer(paramInt * paramVertexAttributes.vertexSize);
+    localByteBuffer.limit(0);
+    setBuffer(localByteBuffer, true, paramVertexAttributes);
+    if (paramBoolean);
+    for (int i = 35044; ; i = 35048)
+    {
+      setUsage(i);
+      return;
+    }
+  }
+
+  public VertexBufferObject(boolean paramBoolean, int paramInt, VertexAttribute[] paramArrayOfVertexAttribute)
+  {
+    this(paramBoolean, paramInt, new VertexAttributes(paramArrayOfVertexAttribute));
+  }
+
+  private void bufferChanged()
+  {
+    if (this.isBound)
+    {
+      Gdx.gl20.glBufferData(34962, this.byteBuffer.limit(), this.byteBuffer, this.usage);
+      this.isDirty = false;
+    }
+  }
+
+  public void bind(ShaderProgram paramShaderProgram)
+  {
+    bind(paramShaderProgram, null);
+  }
+
+  public void bind(ShaderProgram paramShaderProgram, int[] paramArrayOfInt)
+  {
+    GL20 localGL20 = Gdx.gl20;
+    localGL20.glBindBuffer(34962, this.bufferHandle);
+    if (this.isDirty)
+    {
+      this.byteBuffer.limit(this.buffer.limit() << 2);
+      localGL20.glBufferData(34962, this.byteBuffer.limit(), this.byteBuffer, this.usage);
+      this.isDirty = false;
+    }
+    int i = this.attributes.size();
+    if (paramArrayOfInt == null)
+      for (int m = 0; m < i; m++)
+      {
+        VertexAttribute localVertexAttribute2 = this.attributes.get(m);
+        int n = paramShaderProgram.getAttributeLocation(localVertexAttribute2.alias);
+        if (n < 0)
+          continue;
+        paramShaderProgram.enableVertexAttribute(n);
+        paramShaderProgram.setVertexAttribute(n, localVertexAttribute2.numComponents, localVertexAttribute2.type, localVertexAttribute2.normalized, this.attributes.vertexSize, localVertexAttribute2.offset);
+      }
+    for (int j = 0; j < i; j++)
+    {
+      VertexAttribute localVertexAttribute1 = this.attributes.get(j);
+      int k = paramArrayOfInt[j];
+      if (k < 0)
+        continue;
+      paramShaderProgram.enableVertexAttribute(k);
+      paramShaderProgram.setVertexAttribute(k, localVertexAttribute1.numComponents, localVertexAttribute1.type, localVertexAttribute1.normalized, this.attributes.vertexSize, localVertexAttribute1.offset);
+    }
+    this.isBound = true;
+  }
+
+  public void dispose()
+  {
+    GL20 localGL20 = Gdx.gl20;
+    localGL20.glBindBuffer(34962, 0);
+    localGL20.glDeleteBuffer(this.bufferHandle);
+    this.bufferHandle = 0;
+    if (this.ownsBuffer)
+      BufferUtils.disposeUnsafeByteBuffer(this.byteBuffer);
+  }
+
+  public VertexAttributes getAttributes()
+  {
+    return this.attributes;
+  }
+
+  public FloatBuffer getBuffer()
+  {
+    this.isDirty = true;
+    return this.buffer;
+  }
+
+  public int getNumMaxVertices()
+  {
+    return this.byteBuffer.capacity() / this.attributes.vertexSize;
+  }
+
+  public int getNumVertices()
+  {
+    return (this.buffer.limit() << 2) / this.attributes.vertexSize;
+  }
+
+  protected int getUsage()
+  {
+    return this.usage;
+  }
+
+  public void invalidate()
+  {
+    this.bufferHandle = Gdx.gl20.glGenBuffer();
+    this.isDirty = true;
+  }
+
+  protected void setBuffer(Buffer paramBuffer, boolean paramBoolean, VertexAttributes paramVertexAttributes)
+  {
+    if (this.isBound)
+      throw new GdxRuntimeException("Cannot change attributes while VBO is bound");
+    if ((this.ownsBuffer) && (this.byteBuffer != null))
+      BufferUtils.disposeUnsafeByteBuffer(this.byteBuffer);
+    this.attributes = paramVertexAttributes;
+    if ((paramBuffer instanceof ByteBuffer))
+    {
+      this.byteBuffer = ((ByteBuffer)paramBuffer);
+      this.ownsBuffer = paramBoolean;
+      int i = this.byteBuffer.limit();
+      this.byteBuffer.limit(this.byteBuffer.capacity());
+      this.buffer = this.byteBuffer.asFloatBuffer();
+      this.byteBuffer.limit(i);
+      this.buffer.limit(i / 4);
+      return;
+    }
+    throw new GdxRuntimeException("Only ByteBuffer is currently supported");
+  }
+
+  protected void setUsage(int paramInt)
+  {
+    if (this.isBound)
+      throw new GdxRuntimeException("Cannot change usage while VBO is bound");
+    this.usage = paramInt;
+  }
+
+  public void setVertices(float[] paramArrayOfFloat, int paramInt1, int paramInt2)
+  {
+    this.isDirty = true;
+    BufferUtils.copy(paramArrayOfFloat, this.byteBuffer, paramInt2, paramInt1);
+    this.buffer.position(0);
+    this.buffer.limit(paramInt2);
+    bufferChanged();
+  }
+
+  public void unbind(ShaderProgram paramShaderProgram)
+  {
+    unbind(paramShaderProgram, null);
+  }
+
+  public void unbind(ShaderProgram paramShaderProgram, int[] paramArrayOfInt)
+  {
+    GL20 localGL20 = Gdx.gl20;
+    int i = this.attributes.size();
+    if (paramArrayOfInt == null)
+      for (int m = 0; m < i; m++)
+        paramShaderProgram.disableVertexAttribute(this.attributes.get(m).alias);
+    for (int j = 0; j < i; j++)
+    {
+      int k = paramArrayOfInt[j];
+      if (k < 0)
+        continue;
+      paramShaderProgram.disableVertexAttribute(k);
+    }
+    localGL20.glBindBuffer(34962, 0);
+    this.isBound = false;
+  }
+
+  public void updateVertices(int paramInt1, float[] paramArrayOfFloat, int paramInt2, int paramInt3)
+  {
+    this.isDirty = true;
+    int i = this.byteBuffer.position();
+    this.byteBuffer.position(paramInt1 << 2);
+    BufferUtils.copy(paramArrayOfFloat, paramInt2, paramInt3, this.byteBuffer);
+    this.byteBuffer.position(i);
+    this.buffer.position(0);
+    bufferChanged();
+  }
+}
+
+/* Location:           C:\Users\KSHITIZ GUPTA\Downloads\apktool-install-windws\dex2jar-0.0.9.15\dex2jar-0.0.9.15\classes_dex2jar.jar
+ * Qualified Name:     com.badlogic.gdx.graphics.glutils.VertexBufferObject
+ * JD-Core Version:    0.6.0
+ */

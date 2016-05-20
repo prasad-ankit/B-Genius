@@ -1,0 +1,22 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="ksz.test.b_genius.MainActivity">
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_volume_up"
+        android:orderInCategory="101"
+        android:title="@string/action_volume_up"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_volume_down"
+        android:orderInCategory="102"
+        android:title="@string/action_volume_down"
+        app:showAsAction="never" />
+</menu>
